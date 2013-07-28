@@ -1,6 +1,6 @@
 <h1>Families</h1>
 
-<table class="table">
+<table class="table table-striped table-condensed">
   <thead>
     <th>Family</th>
     <th>Parents/Guardians</th>
@@ -20,7 +20,10 @@
       </td>
       <td>
         <ul ng-repeat="student in family.students">
-          <li>{{student.firstName}} {{student.lastName}}</li>
+          <li>
+            {{student.firstName}} {{student.lastName}}
+            <span class="badge">{{student.grade}}</span>
+          </li>
         </ul>
       </td>
     </tr>
