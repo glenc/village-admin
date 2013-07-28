@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: FamilyListCtrl', function () {
 
   // load the controller's module
   beforeEach(module('villageAdminApp'));
 
-  var MainCtrl,
+  var FamilyListCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
+    FamilyListCtrl = $controller('FamilyListCtrl', {
       $scope: scope
     });
   }));

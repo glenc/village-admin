@@ -1,0 +1,28 @@
+<h1>Families</h1>
+
+<table class="table">
+  <thead>
+    <th>Family</th>
+    <th>Parents/Guardians</th>
+    <th>Students</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="family in families">
+      <td>
+        <a href="#/families/{{family._id}}">
+          {{family.name}}
+        </a>
+      </td>
+      <td>
+        <ul ng-repeat="contact in family.contacts">
+          <li>{{contact.firstName}} {{contact.lastName}}</li>
+        </ul>
+      </td>
+      <td>
+        <ul ng-repeat="student in family.students">
+          <li>{{student.firstName}} {{student.lastName}}</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
