@@ -1,66 +1,68 @@
 <div class="page-content">
-  <h1>Families</h1>
+  <page-header title="Families" subtitle="Manage families, parents and students"></page-header>
   
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="">All Families</a></li>
-    <li><a href="">1st Grade</a></li>
-    <li><a href="">2nd Grade</a></li>
-    <li><a href="">3rd Grade</a></li>
-    <li><a href="">4th Grade</a></li>
-    <li><a href="">5th Grade</a></li>
-    <li><a href="">6th Grade</a></li>
-  </ul>
+  <div class="row-fluid">
+    
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="">All Families</a></li>
+      <li><a href="">1st Grade</a></li>
+      <li><a href="">2nd Grade</a></li>
+      <li><a href="">3rd Grade</a></li>
+      <li><a href="">4th Grade</a></li>
+      <li><a href="">5th Grade</a></li>
+      <li><a href="">6th Grade</a></li>
+    </ul>
 
-  <div class="tab-content">
-    <div class="row-fluid">
-      <div class="span9">
-        <div class="btn-group">
-          <a href="#/families/new" class="btn btn-primary">
-            <i class="icon-plus"></i>
-            New Family
-          </a>
-          <a href="" class="btn">
-            <i class="icon-download"></i>
-            Export
-          </a>
+    <div class="tab-content">
+      <div class="row-fluid">
+        <div class="span9">
+          <div class="btn-group">
+            <a href="#/families/new" class="btn btn-primary">
+              <i class="icon-plus"></i>
+              New Family
+            </a>
+            <a href="" class="btn">
+              <i class="icon-download"></i>
+              Export
+            </a>
+          </div>
+        </div>
+        <div class="span3">
+          <form class="navbar-search pull-left">
+            <input type="text" class="search-query" placeholder="Search" ng-model="nameFilter">
+          </form>
         </div>
       </div>
-      <div class="span3">
-        <form class="navbar-search pull-left">
-          <input type="text" class="search-query" placeholder="Search" ng-model="nameFilter">
-        </form>
-      </div>
+      <div class="space"></div>
+      <table class="table table-striped table-condensed">
+        <thead>
+          <th>Family</th>
+          <th>Parents/Guardians</th>
+          <th>Students</th>
+        </thead>
+        <tbody>
+          <tr ng-repeat="family in families | filter:nameFilter | orderBy:'name'">
+            <td>
+              <a href="#/families/{{family._id}}">
+                {{family.name}}
+              </a>
+            </td>
+            <td>
+              <ul class="unstyled" ng-repeat="contact in family.contacts | orderBy:'firstName'">
+                <li>{{contact.firstName}} {{contact.lastName}}</li>
+              </ul>
+            </td>
+            <td>
+              <ul ng-repeat="student in family.students | orderBy:'firstName'" class="unstyled">
+                <li>
+                  {{student.firstName}} {{student.lastName}}
+                  <span class="label arrowed label-yellow">{{student.grade | ordinal}}</span>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="space"></div>
-    <table class="table table-striped table-condensed">
-      <thead>
-        <th>Family</th>
-        <th>Parents/Guardians</th>
-        <th>Students</th>
-      </thead>
-      <tbody>
-        <tr ng-repeat="family in families | filter:nameFilter | orderBy:'name'">
-          <td>
-            <a href="#/families/{{family._id}}">
-              {{family.name}}
-            </a>
-          </td>
-          <td>
-            <ul class="unstyled" ng-repeat="contact in family.contacts | orderBy:'firstName'">
-              <li>{{contact.firstName}} {{contact.lastName}}</li>
-            </ul>
-          </td>
-          <td>
-            <ul ng-repeat="student in family.students | orderBy:'firstName'" class="unstyled">
-              <li>
-                {{student.firstName}} {{student.lastName}}
-                <span class="label arrowed label-yellow">{{student.grade | ordinal}}</span>
-              </li>
-            </ul>
-          </td>
-        </tr>
-      </tbody>
-    </table>
   </div>
-  
 </div>
