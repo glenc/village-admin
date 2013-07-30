@@ -11,10 +11,25 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <!-- build:css({.tmp,app}) styles/main.css -->
-        <link rel="stylesheet" href="styles/bootstrap.css">
-        <link rel="stylesheet" href="styles/main.css">
+    <!-- build:css({.tmp,app}) assets/css/base.css -->
+        <link rel="stylesheet" href="assets/css/bootstrap.css">
+        <link rel="stylesheet" href="assets/css/font-awesome.css">
     <!-- endbuild -->
+
+    <!--[if lt IE 7]>
+        <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css">
+    <![endif]-->
+
+    <!-- build:css({.tmp,app}) assets/css/app.css -->
+        <link rel="stylesheet" href="assets/css/ace-fonts.css">
+        <link rel="stylesheet" href="assets/css/ace.css">
+        <link rel="stylesheet" href="assets/css/ace-skins.css">
+        <link rel="stylesheet" href="assets/css/village.css">
+    <!-- endbuild -->
+
+    <!--[if lt IE 8]>
+        <link rel="stylesheet" href="assets/css/ace-ie.min.css">
+    <![endif]-->
 </head>
 <body ng-app="villageAdminApp">
     <!--[if lt IE 7]>
