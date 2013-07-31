@@ -15,6 +15,10 @@ angular.module('villageAdminApp', ['ngResource'])
         templateUrl: 'views/family-detail.html',
         controller: 'FamilyDetailCtrl'
       })
+      .when('/families/:id/:tab', {
+        templateUrl: 'views/family-detail.html',
+        controller: 'FamilyDetailCtrl'
+      })
       .when('/families/new', {
         templateUrl: 'views/family-detail.html',
         controller: 'FamilyDetailCtrl'

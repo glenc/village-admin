@@ -1,7 +1,136 @@
 <breadcrumbs></breadcrumbs>
 <div class="page-content">
-  <page-header title="Cooper_Stevens" subtitle="Manage family members and students"></page-header>
+  <page-header title="{{family.name}}" subtitle="Manage family members and students"></page-header>
   
   <div class="row-fluid">
+    
+    <ul class="nav nav-tabs">
+      <li ng-class="{'active': location == 'parents'}"><a href="#/families/{{family._id}}/parents"><i class="icon-group"></i> Parents and Students</a></li>
+      <li ng-class="{'active': location == 'info'}"><a href="#/families/{{family._id}}/info"><i class="icon-info-sign"></i> Family Information</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane" id="parents" ng-class="{'active': location == 'parents'}">
+        <div class="row-fluid">
+          <div class="span6 widget-container-span">
+            <div class="widget-box">
+              <div class="widget-header">
+                <h5>Parents / Guardians</h5>
+              </div>
+              <div class="widget-body">
+                <div class="widget-main">
+                  <table class="table table-striped">
+                    <thead>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+                    </thread>
+                    <tbody>
+                      <tr ng-repeat="contact in family.contacts | orderBy:'firstName'">
+                        <td><a href="">{{contact.firstName}} {{contact.lastName}}</a></td>
+                        <td><a href="mailto:{{contact.email}}">{{contact.email}}</a></td>
+                        <td>
+                          <div ng-repeat="phone in contact.phoneNumbers">
+                            <phone-number number="phone"></phone-number>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="btn-group">
+                    <a href="#/families/new" class="btn btn-primary btn-small">
+                      <i class="icon-plus"></i>
+                      New Parent
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="span6">
+            <div class="widget-box">
+              <div class="widget-header">
+                <h5>Students</h5>
+              </div>
+              <div class="widget-body">
+                <div class="widget-main">
+                  <table class="table table-striped">
+                    <thead>
+                      <th>Name</th>
+                      <th>Class Of</th>
+                      <th>Grade</th>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="student in family.students | orderBy:'-grade'">
+                        <td><a href="">{{student.firstName}} {{student.lastName}}</a></td>
+                        <td>{{student.graduatingClass}}</td>
+                        <td>{{student.grade | ordinal}}</td>
+                      </tr>
+                  </table>
+                  <div class="btn-group">
+                    <a href="#/families/new" class="btn btn-primary btn-small">
+                      <i class="icon-plus"></i>
+                      New Student
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="info" ng-class="{'active': location == 'info'}">
+        <div class="row-fluid">
+          <div class="widget-container">
+            <div class="widget-box transparent">
+              <div class="widget-header">
+                <h4>Edit Family Information</h4>
+              </div>
+              <div class="widget-body">
+                <div class="widget-main padding-6 no-padding-left no-padding-right">
+                  <label for="name">Family Name</label>
+                  <span class="input-icon input-icon-right">
+                    <input type="text" name="name" value="{{family.name}}">
+                    <i class="icon-ok green"></i>
+                  </span>
+
+                  <div>
+                    <button type="submit" class="btn btn-primary btn-mini">Save Changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="space"></div>
+
+          <div class="widget-container">
+            <div class="widget-box transparent">
+              <div class="widget-header">
+                <h4>
+                  <i class="icon-warning-sign red"></i>
+                  Delete Family
+                </h4>
+              </div>
+              <div class="widget-body">
+                <div class="widget-main padding-6 no-padding-left no-padding-right">
+                  <div class="alert alert-danger">
+                    Deleting this family will remove all parents and students associated.  This operation cannot be undone.
+                    <div class="space"></div>
+                    <div class="center">
+                      <button class="btn btn-danger" ng-click="deleteFamily()">
+                        <i class="icon-remove"></i>
+                        Delete Family and Students
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>

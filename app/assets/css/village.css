@@ -1,0 +1,4 @@
+/* table classes */
+td.right, th.right {
+  text-align: right;
+}
