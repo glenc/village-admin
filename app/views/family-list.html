@@ -1,16 +1,17 @@
+<breadcrumbs></breadcrumbs>
 <div class="page-content">
   <page-header title="Families" subtitle="Manage families, parents and students"></page-header>
   
   <div class="row-fluid">
     
     <ul class="nav nav-tabs">
-      <li class="active"><a href="">All Families</a></li>
-      <li><a href="">1st Grade</a></li>
-      <li><a href="">2nd Grade</a></li>
-      <li><a href="">3rd Grade</a></li>
-      <li><a href="">4th Grade</a></li>
-      <li><a href="">5th Grade</a></li>
-      <li><a href="">6th Grade</a></li>
+      <li ng-class="{'active': gradeFilter == ''}"><a href="" ng-click="applyGradeFilter('')">All Families</a></li>
+      <li ng-class="{'active': gradeFilter == 1}"><a href="" ng-click="applyGradeFilter(1)">1st Grade</a></li>
+      <li ng-class="{'active': gradeFilter == 2}"><a href="" ng-click="applyGradeFilter(2)">2nd Grade</a></li>
+      <li ng-class="{'active': gradeFilter == 3}"><a href="" ng-click="applyGradeFilter(3)">3rd Grade</a></li>
+      <li ng-class="{'active': gradeFilter == 4}"><a href="" ng-click="applyGradeFilter(4)">4th Grade</a></li>
+      <li ng-class="{'active': gradeFilter == 5}"><a href="" ng-click="applyGradeFilter(5)">5th Grade</a></li>
+      <li ng-class="{'active': gradeFilter == 6}"><a href="" ng-click="applyGradeFilter(6)">6th Grade</a></li>
     </ul>
 
     <div class="tab-content">
@@ -41,7 +42,7 @@
           <th>Students</th>
         </thead>
         <tbody>
-          <tr ng-repeat="family in families | filter:nameFilter | orderBy:'name'">
+          <tr ng-repeat="family in families | grade:gradeFilter | filter:nameFilter | orderBy:'name'">
             <td>
               <a href="#/families/{{family._id}}">
                 {{family.name}}

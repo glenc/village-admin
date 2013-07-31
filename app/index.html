@@ -40,12 +40,39 @@
     <div class="navbar">
         <div class="navbar-inner">
             <div class="container-fluid">
+                <a href="#" class="brand">
+                    <small>
+                        <i class="icon-leaf"></i>
+                        Village Administration
+                    </small>
+                </a>
             </div>
         </div>
     </div>
 
     <div class="main-container container-fluid">
         <div class="sidebar" id="sidebar">
+
+            <ul class="nav nav-list">
+                <li>
+                    <a href="#/">
+                        <i class="icon-dashboard"></i>
+                        <span class="menu-text"> Dashboard </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#/families">
+                        <i class="icon-group"></i>
+                        <span class="menu-text"> Families and Students </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#/system">
+                        <i class="icon-gears"></i>
+                        <span class="menu-text"> System </span>
+                    </a>
+                </li>
+            </ul>
         </div>
         <div class="main-content" ng-view="">
         </div>
@@ -54,6 +81,7 @@
 
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
 
     <!-- build:js scripts/plugins.js -->
     <script src="bower_components/bootstrap-sass/js/bootstrap-affix.js"></script>
@@ -81,6 +109,10 @@
     <script src="scripts/controllers/family-list.js"></script>
     <script src="scripts/filters/ordinal.js"></script>
     <script src="scripts/directives/page-header.js"></script>
+    <script src="scripts/directives/breadcrumbs.js"></script>
+    <script src="scripts/controllers/dashboard.js"></script>
+    <script src="scripts/controllers/family-detail.js"></script>
+    <script src="scripts/filters/grade.js"></script>
     <!-- endbuild -->
 </body>
 </html>
