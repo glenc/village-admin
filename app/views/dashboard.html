@@ -56,8 +56,8 @@
         <div class="widget-body">
           <div class="widget-main">
             <label for="newFamily">Family Name</label>
-            <input type="text" class="input-block-level">
-            <button class="btn btn-primary btn-mini pull-right">Create</button>
+            <input type="text" class="input-block-level" ng-model="newFamily.name">
+            <button ng-click="createFamily()" class="btn btn-primary btn-mini pull-right">Create</button>
           </div>
         </div>
       </div>
