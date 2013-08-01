@@ -3,5 +3,64 @@
   <page-header title="Dashboard" subtitle="Quick access to common functions"></page-header>
   
   <div class="row-fluid">
+    <div class="span8 widget-container-span">
+      <div class="widget-box">
+        <div class="widget-header widget-header-flat widget-header-small">
+          <h5><i class="icon-signal"></i> Statistics</h5>
+        </div>
+        <div class="widget-body">
+          <div class="widget-main infobox-container">
+
+            <div class="infobox infobox-blue">
+              <div class="infobox-icon">
+                <i class="icon-group"></i>
+              </div>
+
+              <div class="infobox-data">
+                <span class="infobox-data-number">{{stats.families}}</span>
+                <div class="infobox-content">families</div>
+              </div>
+            </div>
+
+            <div class="infobox infobox-purple">
+              <div class="infobox-icon">
+                <i class="icon-group"></i>
+              </div>
+
+              <div class="infobox-data">
+                <span class="infobox-data-number">{{stats.contacts}}</span>
+                <div class="infobox-content">parents and guardians</div>
+              </div>
+            </div>
+
+            <div class="infobox infobox-pink">
+              <div class="infobox-icon">
+                <i class="icon-group"></i>
+              </div>
+
+              <div class="infobox-data">
+                <span class="infobox-data-number">{{stats.students}}</span>
+                <div class="infobox-content">students</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="span4 widget-container-span">
+      <div class="widget-box">
+        <div class="widget-header widget-header-flat widget-header-small">
+          <h5><i class="icon-group"></i> Create Family</h5>
+        </div>
+        <div class="widget-body">
+          <div class="widget-main">
+            <label for="newFamily">Family Name</label>
+            <input type="text" class="input-block-level">
+            <button class="btn btn-primary btn-mini pull-right">Create</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
