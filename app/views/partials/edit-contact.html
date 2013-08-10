@@ -1,0 +1,41 @@
+<div class="modal-header">
+  <h1>{{title}}</h1>
+</div>
+<div class="modal-body">
+  <div class="row-fluid">
+    <label for="firstName">Name</label>
+    <div class="controls control-row">
+      <input class="span5" type="text" name="firstName" ng-model="item.firstName" placeholder="First">
+      <input class="span7" type="text" name="lastName" ng-model="item.lastName" placeholder="Last">
+    </div>
+
+    <label for="email">Email Address</label>
+    <input class="input-block-level" type="text" name="email" ng-model="item.email">
+
+    <label>Phone Numbers</label>
+    <div ng-repeat="number in item.phoneNumbers" class="controls control-row">
+      <select class="span3" ng-model="number.type">
+        <option value="Home">Home</option>
+        <option value="Mobile">Mobile</option>
+        <option value="Fax">Fax</option>
+      </select>
+      <input class="span9" type="text" ng-model="number.number">
+    </div>
+    <add-button text="add phone" class="btn-minier" action="addNumber()"></add-button>
+
+    <label for="streetAddress1">Address</label>
+    <input class="input-block-level" type="text" name="streetAddress1" ng-model="item.address.street1" placeholder="Street Address 1">
+    <input class="input-block-level" type="text" name="streetAddress2" ng-model="item.address.street2" placeholder="Street Address 2">
+    <div class="controls control-row">
+      <input class="span7" type="text" name="city" ng-model="item.address.city" placeholder="City">
+      <input class="span2" type="text" name="state" ng-model="item.address.state" placeholder="State">
+      <input class="span3" type="text" name="zip" ng-model="item.address.zip" placeholder="Zip">
+    </div>
+
+  </div>
+</div>
+<div class="modal-footer">
+  <delete-button action="delete()" text="Delete" class="pull-left"></delete-button>
+  <cancel-button action="cancel()" text="Cancel"></cancel-button>
+  <save-button action="submit()" class="btn-primary" text="Save"></save-button>
+</div>

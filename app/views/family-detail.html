@@ -27,7 +27,7 @@
                     </thread>
                     <tbody>
                       <tr ng-repeat="contact in family.contacts | orderBy:'firstName'">
-                        <td><a href="">{{contact.firstName}} {{contact.lastName}}</a></td>
+                        <td><a href="" ng-click="openContactDialog(contact)">{{contact.firstName}} {{contact.lastName}}</a></td>
                         <td><a href="mailto:{{contact.email}}">{{contact.email}}</a></td>
                         <td>
                           <div ng-repeat="phone in contact.phoneNumbers">
@@ -38,10 +38,7 @@
                     </tbody>
                   </table>
                   <div class="btn-group">
-                    <a href="#/families/new" class="btn btn-primary btn-small">
-                      <i class="icon-plus"></i>
-                      New Parent
-                    </a>
+                    <add-button text="New Parent" action="openContactDialog()" class="btn-primary btn-small"></add-button>
                   </div>
                 </div>
               </div>
@@ -68,10 +65,7 @@
                       </tr>
                   </table>
                   <div class="btn-group">
-                    <a href="#/families/new" class="btn btn-primary btn-small">
-                      <i class="icon-plus"></i>
-                      New Student
-                    </a>
+                    <add-button text="New Student" class="btn-primary btn-small"></add-button>
                   </div>
                 </div>
               </div>
@@ -95,7 +89,7 @@
                   </span>
 
                   <div>
-                    <button type="submit" class="btn btn-primary btn-mini">Save Changes</button>
+                    <save-button text="Save Changes" class="btn-primary btn-mini"></save-button>
                   </div>
                 </div>
               </div>

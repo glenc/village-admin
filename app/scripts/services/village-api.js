@@ -11,6 +11,9 @@ angular.module('villageAdminApp')
           method: 'GET',
           params: { expand:'name,contacts.firstName,contacts.lastName,students' },
           isArray: true
+        },
+        update: {
+          method: 'PUT'
         }
       }),
 

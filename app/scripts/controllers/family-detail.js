@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('villageAdminApp')
-  .controller('FamilyDetailCtrl', function ($scope, $routeParams, villageApi, $location) {
+  .controller('FamilyDetailCtrl', function ($scope, $routeParams, villageApi, $location, $dialog) {
     $scope.family = null;
     $scope.location = $routeParams.tab || 'parents';
 
@@ -15,5 +15,27 @@ angular.module('villageAdminApp')
           $location.path('/families/');
         });
       }
-    }
+    };
+
+    $scope.openContactDialog = function(item) {
+      var dg = $dialog.dialog({resolve:{item:function() { return angular.copy(item); }}});
+      dg.open('views/partials/edit-contact.html', 'EditContactCtrl')
+        .then(function(result) {
+          if (result && result !== 'cancel') {
+            var contacts = $scope.family.contacts;
+            if (item) {
+              contacts = _.filter(contacts, function(c) { return c._id != item._id; });
+            }
+            if (result !== 'delete') {
+              contacts.push(result);
+            }
+            $scope.family.contacts = contacts;
+            $scope.saveFamily();
+          }
+        });
+    };
+
+    $scope.saveFamily = function() {
+      $scope.family.$update();
+    };
   });
