@@ -26,6 +26,17 @@ angular.module('villageAdminApp')
         update: {
           method: 'PUT'
         }
+      }),
+
+      // configuration
+      config: $resource(apiHost + '/config/:id', {id:'@_id'}, {
+        query: {
+          method: 'GET',
+          isArray: true
+        },
+        update: {
+          method: 'PUT'
+        }
       })
     };
   });

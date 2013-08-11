@@ -23,6 +23,10 @@ angular.module('villageAdminApp', ['ngResource', 'ui.bootstrap.dialog'])
         templateUrl: 'views/family-detail.html',
         controller: 'FamilyDetailCtrl'
       })
+      .when('/config', {
+        templateUrl: 'views/config.html',
+        controller: 'ConfigCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
