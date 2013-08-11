@@ -58,14 +58,14 @@
                       <th>Grade</th>
                     </thead>
                     <tbody>
-                      <tr ng-repeat="student in family.students | orderBy:'-grade'">
-                        <td><a href="">{{student.firstName}} {{student.lastName}}</a></td>
+                      <tr ng-repeat="student in students | orderBy:'-grade'">
+                        <td><a href="" ng-click="openStudentDialog(student)">{{student.firstName}} {{student.lastName}}</a></td>
                         <td>{{student.graduatingClass}}</td>
                         <td>{{student.grade | ordinal}}</td>
                       </tr>
                   </table>
                   <div class="btn-group">
-                    <add-button text="New Student" class="btn-primary btn-small"></add-button>
+                    <add-button text="New Student" action="openStudentDialog()" class="btn-primary btn-small"></add-button>
                   </div>
                 </div>
               </div>

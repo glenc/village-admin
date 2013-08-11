@@ -7,7 +7,15 @@ angular.module('villageAdminApp')
         families: results.length,
         students: _.reduce(results, function(total,f) { return f.students.length + total;}, 0),
         contacts: _.reduce(results, function(total,f) { return f.contacts.length + total;}, 0)
-      }
+      };
+
+      var countPerGrade = _.chain(results)
+                           .map(function(f) { return f.students; })
+                           .flatten()
+                           .countBy(function(s) { return s.grade; })
+                           .value();
+
+      $scope.classCounts = countPerGrade;
     });
 
     $scope.newFamily = {

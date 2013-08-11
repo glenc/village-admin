@@ -9,6 +9,10 @@ angular.module('villageAdminApp')
       $scope.family = result;
     });
 
+    villageApi.student.query({query:'family:' + $routeParams.id}, function(result) {
+      $scope.students = result;
+    });
+
     $scope.deleteFamily = function() {
       if ($scope.family) {
         $scope.family.$delete(function() {
@@ -31,6 +35,30 @@ angular.module('villageAdminApp')
             }
             $scope.family.contacts = contacts;
             $scope.saveFamily();
+          }
+        });
+    };
+
+    $scope.openStudentDialog = function(item) {
+      var dg = $dialog.dialog({resolve:{item:function() { return angular.copy(item); }}});
+      dg.open('views/partials/edit-student.html', 'EditStudentCtrl')
+        .then(function(result) {
+          if (result && result !== 'cancel') {
+            var reload = function() {
+              villageApi.student.query({query:'family:' + $scope.family._id}, function(result) {
+                $scope.students = result;
+              });
+            };
+            if (item && result === 'delete') {
+              villageApi.student.delete({id:item._id}, reload);
+            } else {
+              result.family = $scope.family._id;
+              if (item) {
+                villageApi.student.update(result, reload);
+              } else {
+                villageApi.student.save(result, reload);
+              }
+            }
           }
         });
     };

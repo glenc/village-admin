@@ -1,0 +1,21 @@
+<div class="modal-header">
+  <h1>{{title}}</h1>
+</div>
+<div class="modal-body">
+  <div class="row-fluid">
+    <label for="firstName">Name</label>
+    <div class="controls control-row">
+      <input class="span5" type="text" name="firstName" ng-model="item.firstName" placeholder="First">
+      <input class="span7" type="text" name="lastName" ng-model="item.lastName" placeholder="Last">
+    </div>
+
+    <label for="class">Class Of</label>
+    <select name="class" ng-model="item.graduatingClass" ng-options="class for class in classes">
+    </select>
+  </div>
+</div>
+<div class="modal-footer">
+  <delete-button action="delete()" text="Delete" class="pull-left"></delete-button>
+  <cancel-button action="cancel()" text="Cancel"></cancel-button>
+  <save-button action="submit()" class="btn-primary" text="Save"></save-button>
+</div>

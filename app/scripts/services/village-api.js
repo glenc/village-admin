@@ -18,6 +18,14 @@ angular.module('villageAdminApp')
       }),
 
       // students
-      student: $resource(apiHost + '/students/:id', {id:'@_id'})
+      student: $resource(apiHost + '/students/:id', {id:'@_id'}, {
+        query: {
+          method: 'GET',
+          isArray: true
+        },
+        update: {
+          method: 'PUT'
+        }
+      })
     };
   });
