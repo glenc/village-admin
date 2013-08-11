@@ -8,10 +8,22 @@
       <input class="span5" type="text" name="firstName" ng-model="item.firstName" placeholder="First">
       <input class="span7" type="text" name="lastName" ng-model="item.lastName" placeholder="Last">
     </div>
+  </div>
 
-    <label for="class">Class Of</label>
-    <select name="class" ng-model="item.graduatingClass" ng-options="class for class in classes">
-    </select>
+  <div class="row-fluid">
+    <div class="span5">
+      <label for="class">Class Of</label>
+      <select name="class" ng-model="item.graduatingClass" ng-options="class for class in classes" class="input-medium">
+      </select>
+    </div>
+    <div class="span7">
+      <label class="radio">
+        <input type="radio" name="gender" value="M" ng-model="item.gender"> <span class="lbl">Male</span>
+      </label>
+      <label class="radio">
+        <input type="radio" name="gender" value="F" ng-model="item.gender"> <span class="lbl">Female</span>
+      </label>
+    </div>
   </div>
 </div>
 <div class="modal-footer">
