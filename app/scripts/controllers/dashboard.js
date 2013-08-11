@@ -12,7 +12,14 @@ angular.module('villageAdminApp')
       var countPerGrade = _.chain(results)
                            .map(function(f) { return f.students; })
                            .flatten()
-                           .countBy(function(s) { return s.grade; })
+                           .groupBy('grade')
+                           .map(function(students,grade) {
+                             return {
+                               grade: grade,
+                               students: students.length,
+                               genders: _.countBy(students, 'gender')
+                             };
+                           })
                            .value();
 
       $scope.classCounts = countPerGrade;

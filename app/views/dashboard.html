@@ -60,11 +60,15 @@
               <thead>
                 <th>Grade</th>
                 <th>Students</th>
+                <th>Boys</th>
+                <th>Girls</th>
               </thead>
               <tbody>
-                <tr ng-repeat="(grade,count) in classCounts">
-                  <td>{{grade | ordinal}}</td>
-                  <td>{{count}}</td>
+                <tr ng-repeat="c in classCounts">
+                  <td>{{c.grade | ordinal}}</td>
+                  <td>{{c.students}}</td>
+                  <td>{{c.genders.M}}</td>
+                  <td>{{c.genders.F}}</td>
                 </tr>
               </tbody>
             </table>
