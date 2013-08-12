@@ -3,8 +3,28 @@
   <page-header title="System Configuration" subtitle="View and modify system settings and configuration"></page-header>
   
   <div class="row-fluid">
-    <ul>
-      <li ng-repeat="setting in settings">{{setting.key}}</li>
-    </ul>
+    <div class="tabbable tabs-left">
+      <ul class="nav nav-tabs">
+        <li ng-repeat="setting in settings" ng-class="{'active': selection.key == setting.key}">
+          <a href="" ng-click="select(setting)"><i class="icon-puzzle-piece"></i> {{setting.key}}</a>
+        </li>
+        <li ng-class="{'active': isNew}">
+          <a href="" ng-click="new()"><i class="icon-plus"></i> Add New</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane active">
+          <input type="text" class="input-large" ng-model="selection.key">
+          
+          <div ui-ace="{onLoad:aceLoaded, onChange:aceChanged}"></div>
+
+          <div class="space"></div>
+
+          <save-button text="Save" class="btn-primary" action="saveSetting()"></save-button>
+          <delete-button text="Delete" class="pull-right" action="deleteSetting()"></delete-button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

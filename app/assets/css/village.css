@@ -2,3 +2,8 @@
 td.right, th.right {
   text-align: right;
 }
+
+.ace_editor {
+  height: 340px;
+  width: 100%;
+}
