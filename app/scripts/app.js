@@ -1,6 +1,10 @@
 'use strict';
 
-angular.module('villageAdminApp', ['ngResource', 'ui.bootstrap.dialog', 'ui.ace'])
+angular.module('villageAdminApp', [
+  'ngResource', 
+  'ui.bootstrap.dialog',
+  'ui.ace'])
+
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

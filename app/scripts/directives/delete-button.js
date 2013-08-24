@@ -7,9 +7,18 @@ angular.module('villageAdminApp')
       replace: true,
       scope: {
         text: '@',
-        action: '&',
-        class: '@'
+        class: '@',
+        action: '&'
       },
-      template: '<a href="" ng-click="action()" class="btn btn-danger {{class}}"><i class="icon-remove"></i> {{text}}</a>'
+      link: function(scope, elem, attrs) {
+        elem.bind('click', function(e) {
+          e.preventDefault();
+          var text = attrs.confirmText || 'Are you sure?';
+          if (confirm(text)) {
+            scope.action();
+          }
+        });
+      },
+      template: '<a href="" class="btn btn-danger {{class}}"><i class="icon-remove"></i> {{text}}</a>'
     };
   });

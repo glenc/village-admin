@@ -84,12 +84,12 @@
                 <div class="widget-main padding-6 no-padding-left no-padding-right">
                   <label for="name">Family Name</label>
                   <span class="input-icon input-icon-right">
-                    <input type="text" name="name" value="{{family.name}}">
+                    <input type="text" name="name" ng-model="family.name">
                     <i class="icon-ok green"></i>
                   </span>
 
                   <div>
-                    <save-button text="Save Changes" class="btn-primary btn-mini"></save-button>
+                    <save-button text="Save Changes" class="btn-primary btn-mini" action="saveFamily()"></save-button>
                   </div>
                 </div>
               </div>
@@ -112,10 +112,7 @@
                     Deleting this family will remove all parents and students associated.  This operation cannot be undone.
                     <div class="space"></div>
                     <div class="center">
-                      <button class="btn btn-danger" ng-click="deleteFamily()">
-                        <i class="icon-remove"></i>
-                        Delete Family and Students
-                      </button>
+                      <delete-button text="Delete Family and Students" action="deleteFamily()"></delete-button>
                     </div>
                   </div>
                 </div>
