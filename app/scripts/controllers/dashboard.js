@@ -2,6 +2,7 @@
 
 angular.module('villageAdminApp')
   .controller('DashboardCtrl', function ($scope, $location, villageApi) {
+
     villageApi.family.query(function(results) {
       $scope.stats = {
         families: results.length,

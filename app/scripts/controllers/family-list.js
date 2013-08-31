@@ -2,6 +2,7 @@
 
 angular.module('villageAdminApp')
   .controller('FamilyListCtrl', function ($scope, villageApi) {
+
     $scope.nameFilter = '';
     $scope.gradeFilter = '';
 
