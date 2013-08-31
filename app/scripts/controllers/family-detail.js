@@ -28,7 +28,7 @@ angular.module('villageAdminApp')
           if (result && result !== 'cancel') {
             var contacts = $scope.family.contacts;
             if (item) {
-              contacts = _.filter(contacts, function(c) { return c._id != item._id; });
+              contacts = _.filter(contacts, function(c) { return c._id !== item._id; });
             }
             if (result !== 'delete') {
               contacts.push(result);
